@@ -1,0 +1,40 @@
+<div class="container mt-3">
+    <div class="row justify-content-center">
+        <div class="col-lg-8">
+            <h2 class="text-center fontFamily">Ingrese su Presupuesto</h2>
+            <div class="card">
+                <div class="card-body">
+                    <!-- <div class="mb-3 text-center" *ngIf="cantidadIncorrecta?openModal():false"> <span class="badge bg-danger textError">EL
+                            PRESUPUESTO DEBE SER MAYOR A CERO</span></div> -->
+                    <input type="number" class="form-control form-control-lg text-center"
+                        placeholder="Ingrese un monto límite para gastar..." [(ngModel)]="cantidad" />
+                    <div class="d-grid gap-2 mt-3">
+                        <button type="button" class="btn btn-secondary btn-lg" (click)="agregar()">
+                            Aceptar
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+  
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" >
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Error</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          El presupuesto debe ser mayor a cero
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="closeModal()">Cerrar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  

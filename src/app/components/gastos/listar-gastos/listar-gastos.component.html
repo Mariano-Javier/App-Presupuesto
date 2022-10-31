@@ -1,0 +1,23 @@
+<h4>Lista de Artículos</h4>
+<hr />
+<div class="row">
+    <div class="col-lg-6 mb-2">
+        <div class="alert alert-success" role="alert">
+            Presupuesto: <strong>{{presupuesto}}</strong>
+        </div>
+    </div>
+    <div class="col-lg-6 mb-2">
+        <div class="alert" role="alert" [ngClass]="aplicarColorRestante()">
+            Restante: <strong>${{restante}}</strong>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-lg-12">
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item d-flex justify-content-between p-1" *ngFor="let item of listaGastos">
+                <span class="fw-bold">{{item.articulo}}</span> <span class="badge rounded-pill bg-secondary fs-6">$ {{item.precio}}</span> 
+            </li>
+          </ul>
+    </div>
+</div>
