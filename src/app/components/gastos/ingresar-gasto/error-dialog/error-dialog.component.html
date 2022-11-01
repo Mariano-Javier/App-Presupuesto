@@ -1,0 +1,15 @@
+<h1 mat-dialog-title class="fontFamilyBlack"><i class="fa-solid fa-circle-exclamation"></i> Error</h1>
+<hr>
+
+<div mat-dialog-content *ngIf="data.tipoError === 'errorInsuficiente'">
+    El presupuesto debe ser mayor a cero.
+</div>
+
+<div mat-dialog-content *ngIf="data.tipoError === 'errorNombre'">
+    Nombre de artículo o precio incorrecto.
+</div>
+
+<hr>
+<div mat-dialog-actions>
+  <button mat-button mat-dialog-close cdkFocusInitial>Ok</button>
+</div>

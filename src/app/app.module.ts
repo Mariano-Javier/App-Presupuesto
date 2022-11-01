@@ -8,6 +8,11 @@ import { IngresarPresupuestoComponent } from './components/ingresar-presupuesto/
 import { IngresarGastoComponent } from './components/gastos/ingresar-gasto/ingresar-gasto.component';
 import { ListarGastosComponent } from './components/gastos/listar-gastos/listar-gastos.component';
 import { FormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatDialogModule} from '@angular/material/dialog';
+import { DialogComponent } from './components/ingresar-presupuesto/dialog/dialog.component';
+import {MatButtonModule} from '@angular/material/button';
+import { ErrorDialogComponent } from './components/gastos/ingresar-gasto/error-dialog/error-dialog.component';
 
 @NgModule({
   declarations: [
@@ -15,12 +20,17 @@ import { FormsModule } from '@angular/forms';
     GastosComponent,
     IngresarPresupuestoComponent,
     IngresarGastoComponent,
-    ListarGastosComponent
+    ListarGastosComponent,
+    DialogComponent,
+    ErrorDialogComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    BrowserAnimationsModule,
+    MatDialogModule,
+    MatButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]

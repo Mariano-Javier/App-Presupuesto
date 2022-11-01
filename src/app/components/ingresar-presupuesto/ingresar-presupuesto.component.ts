@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { PresupuestoService } from '../../services/presupuesto.service';
+import {MatDialog, MatDialogRef} from '@angular/material/dialog';
+import { DialogComponent } from './dialog/dialog.component';
 
-declare var window: any;
+// declare var window: any;
 
 @Component({
   selector: 'app-ingresar-presupuesto',
@@ -13,26 +15,26 @@ export class IngresarPresupuestoComponent implements OnInit {
 
   cantidad:any;
   cantidadIncorrecta:boolean;
-  formModal:any;
+  // formModal:any;
 
-  constructor(private _PresupuestoService:PresupuestoService, private router:Router) { 
+  constructor(private _PresupuestoService:PresupuestoService, private router:Router,public dialog: MatDialog) { 
     this.cantidad='';
     this.cantidadIncorrecta=false;
   }
 
   ngOnInit(): void {
-    this.formModal = new window.bootstrap.Modal(
-      document.getElementById("exampleModal")
-    );
+    // this.formModal = new window.bootstrap.Modal(
+    //   document.getElementById("exampleModal")
+    // );
   }
 
-  openModal():void{
-    this.formModal.show();
-  }
+  // openModal():void{
+  //   this.formModal.show();
+  // }
 
-  closeModal():void{
-    this.formModal.hide();
-  }
+  // closeModal():void{
+  //   this.formModal.hide();
+  // }
 
   agregar():void{
     if (this.cantidad>0) {
@@ -42,10 +44,19 @@ export class IngresarPresupuestoComponent implements OnInit {
       this.router.navigate(['/gastos']);
 
     }else{
-      this.openModal();
+      this.openDialog('300ms', '150ms');
+      this.cantidad='';
+      // this.openModal();
       // this.cantidadIncorrecta=true;
     }
   }
 
+  openDialog(enterAnimationDuration: string, exitAnimationDuration: string): void {
+    this.dialog.open(DialogComponent, {
+      width: '350px',
+      enterAnimationDuration,
+      exitAnimationDuration,
+    });
+  }
  
 }
